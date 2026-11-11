@@ -9,7 +9,7 @@ Trained and tested on the public **Kvasir-v2** dataset (8 classes, 8,000 images)
 
 ---
 
-## 1. What's in it
+## 1. Overview of the Proposed GastroVisionGAN Architecture
 
 - **Denoising-diffusion GAN.** Based on DDGAN, with an 8-step VP-SDE noise schedule (`T = 8`, `β_min = 0.1`, `β_max = 4.0`). Few steps means fast generation.
 - **DenseNet-121 generator.** Pretrained DenseNet-121 encoder, residual-upsampling decoder, and FPN-style skip connections that bring encoder detail back into the decoder. All BatchNorm layers are swapped for GroupNorm so training stays stable with small batches.
@@ -41,13 +41,10 @@ Trained and tested on the public **Kvasir-v2** dataset (8 classes, 8,000 images)
  Discriminator  (patch head + global head)  →  real / fake
 ```
 
-Generation starts from a real training image rather than pure noise. That is what keeps the anatomy and lesion location intact while still giving a new image.
 
 ---
 
 ## 3. Getting started
-
-A CUDA GPU is strongly recommended. The model was trained on a single Kaggle Tesla T4 (15 GB).
 
 ### Install
 
